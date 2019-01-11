@@ -1,0 +1,52 @@
+﻿<Window x:Class="NotePad.MainWindow" Icon="icons/notepad2.ico"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NotePad"
+        mc:Ignorable="d"
+        Title="Unnamed" Height="450" Width="800"  Background="LightGray" Name="App" Closing="App_Closing" KeyDown="App_KeyDown" >
+    <Grid>
+        <DockPanel LastChildFill="True" >
+
+            <Menu  Background="White"  Height="18"  DockPanel.Dock="Top">
+                <MenuItem  VerticalAlignment="Center" Header="_File" Height="20" >
+                    <MenuItem Name="NewButton" VerticalAlignment="Stretch" Header="New" InputGestureText="CTRL+N" Height="20" Click="NewButton_Click" />
+                    <MenuItem Name="OpenButton" VerticalAlignment="Stretch" Header="Open..."  InputGestureText="CTRL+0" Height="20" Click="OpenButton_Click"/>
+                    <MenuItem Name="SaveButton" VerticalAlignment="Stretch" Header="Save" Height="20" InputGestureText="CTRL+S" Click="SaveButton_Click" />
+                    <MenuItem Name="SaveAsButton" VerticalAlignment="Stretch" Header="Save As" Height="20" Click="SaveAsButton_Click"></MenuItem>
+                    <Separator></Separator>
+                    <MenuItem Name="ExitButton"  VerticalAlignment="Stretch" Header="Exit" Height="20" Click="ExitButton_Click"></MenuItem>
+                </MenuItem>
+
+                <MenuItem VerticalAlignment="Center" Header="_Edit" Height="20">
+                    <MenuItem Name="UndoButton" VerticalAlignment="Stretch"  Header="Undo" InputGestureText="CTRL+Z" Height="20" Click="Undo_Click" ></MenuItem>
+                    <Separator></Separator>
+                    <MenuItem Name="CutButton" VerticalAlignment="Stretch"  Header="Cut" InputGestureText="CTRL+X" Height="20" Click="Cut_Click"></MenuItem>
+                    <MenuItem Name="CopyButton" VerticalAlignment="Stretch"  Header="Copy" InputGestureText="CTRL+C" Height="20" Click="Copy_Click"></MenuItem>
+                    <MenuItem Name="PasteButton" VerticalAlignment="Stretch" Header="Paste" InputGestureText="CTRL+V" Height="20" Click="Paste_Click"></MenuItem>
+                    <MenuItem Name="DeleteButton" VerticalAlignment="Stretch" Header="Delete" InputGestureText="Del" Height="20" Click="Delete_Click"></MenuItem>
+                    <MenuItem Name="SelectAllButton" VerticalAlignment="Stretch" Header="Select All" InputGestureText="CTRL+A" Height="20" Click="SelectAll_Click"></MenuItem>
+                </MenuItem>
+
+                <MenuItem VerticalAlignment="Center" Header="_Format" Height="20">
+                    <MenuItem Name="wordwrapbutton" VerticalAlignment="Center" IsCheckable="True" Header="World Wrap" Height="20" Click="WordWrap_Click"></MenuItem>
+                    <MenuItem VerticalAlignment="Center" Header="Font" Height="20" Click="Font_Click"  ></MenuItem>
+                </MenuItem>
+                <MenuItem VerticalAlignment="Center" Header="_View" Height="20">
+                    <MenuItem Name="SttsButton" VerticalAlignment="Center" IsCheckable="True" Header="Status Bar" Height="20" Click="Status_Click" ></MenuItem>
+                </MenuItem>
+                <MenuItem  VerticalAlignment="Center" Header="_Help" Height="20" Click="Help_Click"></MenuItem>
+            </Menu>
+
+            <TextBlock Name="SttsWindow" TextAlignment="Right" Visibility="Collapsed" DockPanel.Dock="Bottom" Height="18" FontSize="16" VerticalAlignment="Top" Margin="0,0,15,0">
+
+
+            </TextBlock>
+            <ScrollViewer Name="scrll" HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Visible">
+                <TextBox  Name="textbox" BorderThickness="0"  Margin="0,2,0,0"  Block.LineHeight="1" IsUndoEnabled="True" UndoLimit="50"   AcceptsReturn="True" FontFamily="Consolas" FontSize="14" SelectionChanged="textbox_SelectionChanged"  />
+            </ScrollViewer>
+
+        </DockPanel>
+    </Grid>
+</Window>
